@@ -13,7 +13,7 @@ description = "A gitignore template for Python projects."
 body = list()
 with open('template.txt') as doc:
     for line in doc:
-        body.append(line)
+        body.append(line.replace('\n', ''))
 
 code_snippet = dict()
 
