@@ -1,7 +1,14 @@
+###--- IMPORTS ---###
+import json
+
 ###--- CODE-SNIPPET BUILDER ---###
 
-name = input("*** Enter a name for your code-snippet: ")
-prefix = input("\n\n*** Enter a prefix for your code-snippet: ")
+# [!] optiona: accetps input
+# name = input("*** Enter a name for your code-snippet: ")
+# prefix = input("\n*** Enter a prefix for your code-snippet: ")
+name = "gitignore"
+prefix = "ignore"
+description = "A gitignore template for Python projects."
 
 body = list()
 with open('template.txt') as doc:
@@ -11,8 +18,16 @@ with open('template.txt') as doc:
 code_snippet = dict()
 
 code_snippet[name] = {
-    "prefix": name,
-    "body": prefix,
+    "prefix": prefix,
+    "body": body,
+    "description": description,
 }
 
-print(code_snippet)
+print(type(code_snippet))  # dict
+# print(code_snippet)
+
+snippet_as_json = json.dumps(code_snippet, indent=4)
+print(type(snippet_as_json))  # str
+print(snippet_as_json)
+
+# TO DO: set as .code-snippets on VSC
